@@ -1,0 +1,28 @@
+<!--　DRYでView も共通化出来る、パーシャルを作成し、そこにView内容を書き込にnewの実態は２行で済む-->
+<!--<%= form_with(model: @blog, local: true) do |form| %>-->
+<!--  <% if @blog.errors.any? %>-->
+<!--    <div id="error_explanation">-->
+<!--      <h2><%= @blog.errors.count %>件のエラーがあります。</h2>-->
+<!--      <ul>-->
+
+<!--      <% @blog.errors.full_messages.each do |msg| %>-->
+<!--        <li><%= msg %></li>-->
+<!--      <% end %>-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--  <% end %>-->
+
+<!--  <div class="blog_title">-->
+<!--    <%= form.label :title %>-->
+<!--    <%= form.text_field :title %>-->
+<!--  </div>-->
+<!--  <div class="blog_title">-->
+<!--    <%= form.label :content %>-->
+<!--    <%= form.text_field :content %>-->
+<!--  </div>-->
+<!--  <%= form.submit %>-->
+<!--<% end %>-->
+
+ <h2>つぶやく</h2>
+
+  <%= render 'form' %>

@@ -1,0 +1,40 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#gnavi">
+        <span class="sr-only">Bootstrap</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Bootstrap</a>
+    </div>
+
+    <div id="gnavi" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <% if logged_in? %>
+          <li><%= link_to "Profile", user_path(current_user.id) %></li>
+          <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
+          <!-- 171212 ログインした後にプロフィール画面からブログに戻れないから追記！！-->
+          <li><%= link_to "blogs", blogs_path(current_user.id) %></li>
+        <% else %>
+          <li><%= link_to "Sign up", new_user_path %></li>
+          <li><%= link_to "Login", new_session_path %></li>
+        <% end %>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+<header class="header clearfix">
+  <a><%= link_to 'ホーム', blogs_path , class: "btn btn-warning" %></a>
+  <a><%= link_to 'つぶやき', new_blog_path ,  class: "btn btn-warning" %></a>
+</header>
+
+<div class="div_header">
+  <a>生きてればいい事あるさ〜。</a>
+  <!-- <a href=""><img src="assets/bootstrap01.jpeg" class="area_logo img-responsive"></a> -->
+  <a href=""><img src="assets/bootstrap01.jpeg" class="area_logo img-responsive"></a>
+</div>

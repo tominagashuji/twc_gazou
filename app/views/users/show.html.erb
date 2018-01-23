@@ -1,0 +1,20 @@
+<div class="container">
+	<h1><%= @user.name %>のページ</h1>
+	<p>メールアドレス: <%= @user.email %></p>
+	<%= form_with(scope: :session, url: sessions_path) do |f| %>
+	<% end %>
+
+	<!-- お気に入りの一覧をだす処理 -->
+	<h1><%= @user.name %>のお気に入りブログ</h1>
+	<tr>
+		<th>内容</th><br>
+	</tr>
+	<% @favorite_blogs.each do |favorite_blogs| %>
+		<tr>
+			<!-- <th><%#= favorite_blogs.Blog id %></th> -->
+			<th><%= favorite_blogs.content %></th><br>
+			<!-- <th><%#= favorite_blogs.user_id %></th> -->
+		</tr>
+  <%end%>
+
+</div>

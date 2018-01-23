@@ -1,0 +1,73 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require bootstrap/dist/css/bootstrap.css
+ *= require_tree .
+ *= require_self
+ */
+
+ .div_header{
+   background-color: #0099FF;
+   padding: 5px;
+   text-align:center;
+ }
+
+ .area_logo{
+   background-color: #0099FF;
+   color: #3300FF;
+   width:100%;
+   margin:0;
+ }
+
+ .img-responsive{
+   margin: 0 auto;
+   width:80%;
+   height: 100%;
+ }
+
+ .footer{
+   width: 100%;
+   height: 50px;
+   /*position: absolute;*/
+   position: fixed;
+   bottom: 0;
+   background-color: #CCEEFF;
+   display: table;
+   margin-top:100px auto;
+ }
+ .footer p {
+   font-size: 1rem;
+   color: #00AAFF;
+   text-align: center;
+   vertical-align: middle;
+   display: table-cell;
+ }
+
+/* 背景を指定する */
+ .jumbotron {
+ 	/* 画像ファイルの指定 */
+ 	background-image: url(uchu02.jpeg);
+ 	/* 画像を常に天地左右の中央に配置 */
+ 	background-position: center center;
+ 	/* 画像をタイル状に繰り返し表示しない */
+ 	background-repeat: repeat;
+ 	/* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+ 	background-attachment: fixed;
+ 	/* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+ 	background-size: cover;
+ 	/* 背景画像が読み込まれる前に表示される背景のカラー */
+ 	background-color: #FF0000;
+ 	/* 全画面表示させる */
+ 	height: 1000px;
+  /* 全画面表示させる */
+ 	color: wheat;
+ }

@@ -1,0 +1,21 @@
+<%= form_with(model: @blog, local: true ,data: { confirm: '本当につぶやきますか？' } ) do |form| %>
+  <% if @blog.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @blog.errors.count %>件のエラーがあります。</h2>
+      <ul>
+
+      <% @blog.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<p><%= notice %></p>
+
+  <div class="blog_content">
+    <%= form.label :content %>
+    <%= form.text_field :content %><br>
+    <%= form.submit class: "btn_index" %>
+  </div>
+<% end %>

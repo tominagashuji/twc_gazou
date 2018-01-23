@@ -1,0 +1,14 @@
+<h1>つぶやき詳細画面</h1>
+<p>内容: <%= @blog.content %></p>
+
+<% unless @blog.user == current_user %>
+  <% if @favorite.present? %>
+    <button type="button" class="btn btn-danger">
+      <%= link_to 'お気に入り解除する', favorite_path(blog_id: @blog.id), method: :delete %>
+    </button>
+  <% else %>
+    <button type="button" class="btn btn-prymary">
+      <%= link_to 'お気に入りする', favorites_path(blog_id: @blog.id), method: :post %>
+    </button>
+  <% end %>
+<% end %>
