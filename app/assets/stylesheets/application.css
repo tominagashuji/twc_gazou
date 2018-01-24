@@ -65,7 +65,7 @@
  	/* 表示するコンテナの大きさに基づいて、背景画像を調整 */
  	background-size: cover;
  	/* 背景画像が読み込まれる前に表示される背景のカラー */
- 	background-color: #FF0000;
+ 	background-color: #AAAAAA;
  	/* 全画面表示させる */
  	height: 1000px;
   /* 全画面表示させる */
