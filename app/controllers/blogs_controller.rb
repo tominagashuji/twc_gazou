@@ -16,7 +16,6 @@ class BlogsController < ApplicationController
 #    Blog.create(params[:blog]) #インスタンス関数を使って全ての情報を取得している、但しセキュリティに難あり。
 #    Blog.create(title: params[:blog][:title], content: params[:blog][:content]) #ハッシュを使わないでカラムを一つずつ取得している
 #    redirect_to new_blog_path
-    binding.pry
     @blog = Blog.new(blog_params) #バリデーションの機能追加
     @blog.user_id = current_user.id #現在ログインしているuserのidをblogのuser_idカラムに挿入する。
     if @blog.save
