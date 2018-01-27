@@ -30,4 +30,9 @@ Rails.application.routes.draw do
   ##  ログインシステム：起動時にログイン画面が表示されるようにする
   root 'tops#index'
 
+  ##  ActionMailer の設定にて追記
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
 end

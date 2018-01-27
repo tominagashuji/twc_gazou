@@ -1,7 +1,7 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy] # DRYにてアクションの前に設置
   before_action :set_login, only: [:new, :edit, :show] # ログインしていないとトップに戻す
-
+  
   def index
     @blogs = Blog.all #
   end
