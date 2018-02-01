@@ -4,8 +4,16 @@
 	<%= form_with(scope: :session, url: sessions_path) do |f| %>
 	<% end %>
 
+	<p id="notice"><%= notice %></p>
+
+	<p>
+	  <strong>Image:</strong>
+	  <%= image_tag @user.image %>
+	</p>
+
 	<!-- お気に入りの一覧をだす処理 -->
 	<h1><%= @user.name %>のお気に入りブログ</h1>
+
 	<tr>
 		<th>内容</th><br>
 	</tr>

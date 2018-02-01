@@ -1,7 +1,7 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy] # DRYにてアクションの前に設置
   before_action :set_login, only: [:new, :edit, :show] # ログインしていないとトップに戻す
-  
+
   def index
     @blogs = Blog.all #
   end
@@ -18,14 +18,26 @@ class BlogsController < ApplicationController
 #    redirect_to new_blog_path
     @blog = Blog.new(blog_params) #バリデーションの機能追加
     @blog.user_id = current_user.id #現在ログインしているuserのidをblogのuser_idカラムに挿入する。
-    if @blog.save
-      # 一覧画面へ遷移して"ブログを作成しました！"とメッセージを表示します。
-      redirect_to blogs_path, notice: "つぶやきました！"
-    else
-      # 入力フォームを再描画します。
-      render 'new'
+
+    respond_to do |format|
+      if @blog.save
+        format.html { redirect_to @blog, notice: 'ブログを登録しました！' }
+        format.json { render :show, status: :created, location: @blog }
+      else
+        format.html { render :new }
+        format.json { render json: @blog.errors, status: :unprocessable_entity }
+      end
     end
   end
+
+  #   if @blog.save
+  #     # 一覧画面へ遷移して"ブログを作成しました！"とメッセージを表示します。
+  #     redirect_to blogs_path, notice: "つぶやきました！"
+  #   else
+  #     # 入力フォームを再描画します。
+  #     render 'new'
+  #   end
+  # end
 
   # アソシエーションの叩いたで設定し直した
 
@@ -58,7 +70,7 @@ class BlogsController < ApplicationController
     private #噂のストロングパラメーター。設定しないと無関係のカラムを編集出来るので設定する。
 
   def blog_params
-    params.require(:blog).permit(:title, :content)
+    params.require(:blog).permit(:title, :content, :image)
   end
 
   # idをキーとして値を取得するメソッド(DRY（Don’t Repeat Yourself）)shou edit update　で

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :feeds
   get 'tops/index'
 
   # get 'sessions/new'
@@ -35,4 +36,7 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
+  ##  画像アップローダー の設定にて追記
+  resources :feeds
+  
 end

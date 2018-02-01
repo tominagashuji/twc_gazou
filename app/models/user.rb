@@ -25,4 +25,7 @@ class User < ApplicationRecord
 # お気に入り一覧表示の定義
 	has_many :favorite_blogs, through: :favorites, source: :blog
 
+# carrierwave 設定
+	mount_uploader :image, ImageUploader
+
 end
